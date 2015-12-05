@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-nav-bar class="bar-light">
+    <ion-nav-back-button class="button button-assertive button-clear">
+      <i class="icon ion-ios-arrow-back"></i>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-title class="search-block">
+      <input type="search" placeholder="Search events ..." ng-model="formSearch.keyword" ng-change="searchTweetFn()">
+      <input type="text" ng-model="someObj.prop1">
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+      <button class="button button-assertive icon button-clear ion-ios-close-empty" ng-click="formSearch.keyword = ''"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-header-bar class="bar-subheader bar-light">
+    <input type="month">
+  </ion-header-bar>
+
+  <ion-content class="search-page">
+  
+  </ion-content>
+</ion-view>

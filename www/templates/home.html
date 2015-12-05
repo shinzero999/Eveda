@@ -1,0 +1,41 @@
+<ion-view>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>  
+
+    <div class="list">
+      <div ng-repeat="date in dates">
+
+        <div class="item month month-{{date.month()}}" ng-show="date.date() == 1">
+          <div class="row">
+            <div class="col col-80 col-offset-20">
+              <h2 class="dark">{{date.format('MMMM YYYY')}}</h2>
+            </div>  
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="row">
+            <div class="col col-20 text-center">
+              <h1 class="balanced">{{date.format('D')}}</h1>
+              <h2 class="balanced">{{date.format('MMM')}}</h2>
+            </div>
+            <div class="col col-67 col-offset-10">
+              <div ng-repeat="event in publicEvents" ng-show="!(date.isBefore(event.start_date, 'day') || date.isAfter(event.end_date, 'day'))">
+                <button class="button button-full button-small button-{{event.genre.color}}" ui-sref="app.event({id: event.id})">{{event.title}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <ion-infinite-scroll
+            on-infinite="loadMore()" 
+            distance="10%">
+    </ion-infinite-scroll>  
+  </ion-content>
+</ion-view>

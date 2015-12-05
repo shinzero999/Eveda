@@ -1,0 +1,86 @@
+<ion-view>
+    <ion-nav-bar class="bar-assertive" align-title="center">
+        <ion-nav-back-button class="button button-assertive button-clear">
+            <i class="icon ion-ios-arrow-back"></i>
+        </ion-nav-back-button>
+        
+        <ion-nav-buttons side="left">
+        </ion-nav-buttons>
+
+        <ion-nav-title>
+            Event detail
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="hero slide-up">
+            <div class="content">
+                <div class="bg">
+                    <h3 class="light padding">{{event.title}}</h3>
+                </div>
+            </div>
+        </div>
+        <button class="button icon-left ion-person button-balanced button-full" style="margin: 0;">{{event.user.display_name}}</button>
+        <div class="list animate-fade-slide-in-right">
+            <div class="row">
+                <div class="col">
+                    <div class="item" style="text-align: center;">
+                        <h2 class="royal-900">FROM</h2>
+                        <h1 class="energized-900">{{event.start_date.format('D')}}</h1>
+                        <h2 class="energized-900">{{event.start_date.format('MMM YYYY')}}</h2>
+                        <h2 class="assertive-900">{{event.start_date.format('hh:mm A')}}</h2>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="item" style="text-align: center;">
+                        <h2 class="royal-900">TO</h2>
+                        <h1 class="energized-900">{{event.end_date.format('D')}}</h1>
+                        <h2 class="energized-900">{{event.end_date.format('MMM YYYY')}}</h2>
+                        <h2 class="assertive-900">{{event.end_date.format('hh:mm A')}}</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row item" ng-show="event.location != null">
+                <div class="col col-20">
+                    <button class="button button-fab button-royal icon ion-ios-location"></button>
+                </div>
+                <div class="col col-80">
+                    <h2>Location</h2>
+                    <p>{{event.location}}</p>
+                </div>
+            </div>
+            <div class="row item">
+                <div class="col col-20">
+                    <button class="button button-fab button-assertive icon ion-navigate"></button>
+                </div>
+                <div class="col col-80">
+                    <h2>Region</h2>
+                    <p>{{event.region.name}}</p>
+                </div>
+            </div>
+            <!-- <div class="item item-avatar" ng-show="event.genre != null">
+                <img src="../img/bg3.jpg">
+                <h2>Genre</h2>
+                <p>{{event.genre}}</p>
+            </div> -->
+            <div class="row item" ng-show="event.url != null">
+                <div class="col col-20">
+                    <button class="button button-fab button-calm icon ion-link"></button>
+                </div>
+                <div class="col col-80">
+                    <h2>URL</h2>
+                    <a href="javascript:;" ng-click="openLink()">{{event.url}}</a>
+                </div>
+            </div>
+            <div class="row item" ng-show="event.notes != null">
+                <div class="col col-20">
+                    <button class="button button-fab button-dark icon ion-compose"></button>
+                </div>
+                <div class="col col-80">
+                    <h2>Notes</h2>
+                    <p>{{event.notes}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

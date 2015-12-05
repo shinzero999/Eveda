@@ -1,0 +1,50 @@
+<ion-view>
+	<ion-content scroll="false" on-swipe-right="previous()" on-swipe-left="next()">
+		<div class="bar bar-header bar-balanced">
+			<div class="buttons buttons-left header-item">
+				<span class="left-buttons">
+					<button class="button button-clear no-animation ion-ios-arrow-back icon"
+					        ng-click="previous()" >
+					</button>
+				</span>
+			</div>
+
+			<div class="title">
+				<span class="title">{{month.format("MMMM, YYYY")}}</span>
+			</div>
+
+			<div class="buttons buttons-right header-ite">
+				<span class="right-buttons">
+					<button class="button button-clear no-animation ion-ios-arrow-forward icon"
+					        ng-click="next()">
+					</button>
+				</span>
+			</div>
+	    </div>
+		<div class="bar bar-subheader bar-light">
+			<div class="row text-center">
+			    <span class="col">Sun</span>
+			    <span class="col">Mon</span>
+			    <span class="col">Tue</span>
+			    <span class="col">Wed</span>
+			    <span class="col">Thu</span>
+			    <span class="col">Fri</span>
+			    <span class="col">Sat</span>
+		    </div>
+		</div>
+		<div class="list calendar-list has-header has-subheader">
+			<!-- <div class="button-bar">
+                <a class="button button-raised ink-dark">1</a>
+                <a class="button button-raised ink-dark">2</a>
+                <a class="button button-raised ink-dark">3</a>
+                <a class="button button-raised ink-dark">4</a>
+            </div> -->
+			<div class="row row-1 text-center" ng-repeat="week in weeks">
+				<div class="col" ng-click="select(day)" ng-repeat="day in week.days">
+					<span  ng-class="{ 'badge badge-assertive': day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }">{{day.number}}</span>
+					<div></div>
+				</div>
+			</div>
+		</div>
+  	</ion-content>
+</ion-view>

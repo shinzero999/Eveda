@@ -1,0 +1,193 @@
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+.slide-in-down {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0); }
+
+.slide-in-down.ng-enter, .slide-in-down > .ng-enter {
+  -webkit-transition: all cubic-bezier(.1, .7, .1, 1) 400ms;
+  transition: all cubic-bezier(.1, .7, .1, 1) 400ms; }
+
+.slide-in-down.ng-enter-active, .slide-in-down > .ng-enter-active {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.slide-in-down.ng-leave, .slide-in-down > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }
+
+/* Root Controller
+==================================*/
+
+ion-popover-view {
+  height: auto !important;
+}
+
+ion-popover-view ion-content {
+  position: relative !important;
+}
+
+.platform-android ion-popover-view {
+  margin-top: 10px !important;
+}
+
+/* Login modal
+==================================*/
+.login-modal {
+	background: url('../img/bg2.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+
+.app-title {
+	margin-bottom: 7%;
+}
+
+.item-login {
+  border-width: 0;
+  border-bottom: 1px solid #fff;
+}
+
+.item-login input, 
+.item-login textarea, 
+.item-login .input-label {
+  color: #fff;
+}
+
+.item-login input::-webkit-input-placeholder,
+.item-login textarea::-webkit-input-placeholder { 
+    color:    #fff;
+}
+.item-login input:-moz-placeholder,
+.item-login textarea:-moz-placeholder { 
+   color:    #fff;
+}
+.item-login input::-moz-placeholder,
+.item-login textarea::-moz-placeholder {
+   color:    #fff;
+}
+.item-login input:-ms-input-placeholder,
+.item-login textarea:-ms-input-placeholder { 
+   color:    #fff;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Home Controller
+==================================*/
+.month {
+  padding-bottom: 60px;
+}
+
+.month-0 {
+  background: url('../img/google-bg/bkg_01_january.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-1 {
+  background: url('../img/google-bg/bkg_02_february.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-2 {
+  background: url('../img/google-bg/bkg_03_march.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-3 {
+  background: url('../img/google-bg/bkg_04_april.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-4 {
+  background: url('../img/google-bg/bkg_05_may.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-5 {
+  background: url('../img/google-bg/bkg_06_june.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-6 {
+  background: url('../img/google-bg/bkg_07_july.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-7 {
+  background: url('../img/google-bg/bkg_08_august.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-8 {
+  background: url('../img/google-bg/bkg_09_september.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-9 {
+  background: url('../img/google-bg/bkg_10_october.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-10 {
+  background: url('../img/google-bg/bkg_11_november.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.month-11 {
+  background: url('../img/google-bg/bkg_12_december.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Home by month Controller
+==================================*/
+.different-month {
+  color: #C0C0C0;
+}
+
+.row-1 {
+  margin: auto !important;
+}
+
+.calendar-list {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 132px);
+}
+
+.calendar-list > div:first-child {
+  margin-top: 0 !important;
+}
+
+/* Create event modal
+==================================*/
+#photo {
+  max-height: 200px;
+}
+
+/* Event detail
+==================================*/
+.bg {
+  background-color: rgba(0, 0, 0, 0.25);
+  text-align: left;
+  overflow: hidden;
+}
+
+.hero {
+  background-image: url('../img/bg4.jpg');
+}

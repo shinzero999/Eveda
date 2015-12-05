@@ -1,0 +1,48 @@
+<ion-modal-view>
+	<ion-content class="login-modal" scroll="false"></ion-content>
+	<div class="bar bar-clear">
+		<div>
+			<button class="button icon ion-ios-arrow-back button-clear" ng-click="closeUpgradeModal()"></button>
+		</div>
+    </div>
+	<ion-content>
+		<div class="row welcome">
+		    <div class="col text-center light">UPGRADE</div>
+	  	</div>
+	  	<div class="row">
+		    <div class="col text-center"><h1 class="light">ACCOUNT</h1></div>
+	  	</div>
+
+	  	<div class="row">
+		    <div class="col col-80 col-offset-10">
+		    	<label class="item item-input item-floating-label item-login">
+	                <span class="input-label">Phone number</span>
+	                <input type="tel" placeholder="Phone number" ng-model="phoneNumber">
+	            </label>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col col-80 col-offset-10">
+		    	<label class="item item-input item-floating-label item-login">
+	                <span class="input-label">Address</span>
+	                <input type="text" placeholder="Address" ng-model="address">
+	            </label>
+		    </div>
+	  	</div>
+
+	  	<div class="row">
+		    <div class="col col-80 col-offset-10">
+		    	<label class="item item-input item-floating-label item-login">
+	                <span class="input-label">About</span>
+	                <textarea rows="4" placeholder="About" ng-model="about" style="background-color: transparent"></textarea>
+	            </label>
+		    </div>
+	  	</div>
+
+	  	<div class="row">
+		    <div class="col col-80 col-offset-10">
+		    	<button class="button button-block button-light" ng-click="upgrade(phoneNumber, address, about)">Upgrade</button>
+		    </div>
+	  	</div>
+	</ion-content>
+</ion-modal-view>

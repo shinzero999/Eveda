@@ -1,0 +1,153 @@
+<ion-modal-view>
+	<ion-content class="login-modal" scroll="false"></ion-content>
+	<div ng-show="mode == 'list'">
+		<div class="bar bar-clear">
+			<div>
+				<button class="button icon ion-ios-arrow-back button-clear" ng-click="loginModal.hide()"></button>
+			</div>
+	    </div>
+		<ion-content scroll="false" class="has-header">
+			<div class="row">
+			    <div class="col text-center light">WELCOME TO</div>
+		  	</div>
+		  	<div class="row app-title">
+			    <div class="col text-center"><h1 class="light">Eveda</h1></div>
+		  	</div>
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<button class="button button-full button-positive icon-left ion-social-facebook" ng-click="loginFacebook()">Facebook</button>
+			    </div>
+			</div>
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<button class="button button-full button-assertive icon-left ion-social-google-outline" ng-click="loginGoogle()">Google</button>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<button class="button button-full button-calm icon-left ion-social-twitter" ng-click="loginTwitter()">Twitter</button>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<button class="button button-block button-light" ng-click="changeModeToLoginEmail()">Sign in with email</button>
+			    </div>
+		  	</div>
+		</ion-content>
+		<div class="bar bar-footer bar-clear">
+			<div class="row">
+				<div class="col text-center">
+					<a id="signupFormButton" class="dark" ng-click="changeModeToRegister()">Sign up</a>
+				</div>
+			</div>
+				
+			
+		</div>
+	</div>
+
+	<div ng-show="mode == 'email'">
+		<div class="bar bar-clear">
+			<div>
+				<button class="button icon ion-ios-arrow-back button-clear" ng-click="changeModeToList()"></button>
+			</div>
+	    </div>
+		<ion-content scroll="false" class="has-header">
+			<div class="row">
+			    <div class="col text-center light">WELCOME TO</div>
+		  	</div>
+		  	<div class="row">
+			    <div class="col text-center"><h1 class="light">Eveda</h1></div>
+		  	</div>
+		  	
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<label class="item item-input item-floating-label item-login">
+		                <span class="input-label">Email</span>
+		                <input type="text" placeholder="Email" ng-model="loginForm.email">
+		            </label>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<label class="item item-input item-floating-label item-login">
+		                <span class="input-label">Password</span>
+		                <input type="password" placeholder="Password" ng-model="loginForm.password">
+		            </label>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<button id="loginButton" class="button button-block button-light" ng-click="login(loginForm.email, loginForm.password)">Sign in</button>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10 text-center">
+			    	<a href="javascript:;"><span class="light">Forgot password?</span></a>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10 text-center">
+			    	<a href="javascript:;" ng-click="changeModeToRegister()"><h4 class="light">Sign up</h4></a>
+			    </div>
+		  	</div>
+		</ion-content>
+	</div>
+
+	<div ng-show="mode == 'register'">
+		<div class="bar bar-clear">
+			<div>
+				<button class="button icon ion-ios-arrow-back button-clear" ng-click="changeModeToList()"></button>
+			</div>
+	    </div>
+		<ion-content scroll="false" class="has-header">
+			<div class="row">
+			    <div class="col text-center light">WELCOME TO</div>
+		  	</div>
+		  	<div class="row">
+			    <div class="col text-center"><h1 class="light">Eveda</h1></div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<label class="item item-input item-floating-label item-login">
+		                <span class="input-label">Email</span>
+		                <input type="text" placeholder="Email" ng-model="registerForm.email">
+		            </label>
+			    </div>
+			</div>
+			<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<label class="item item-input item-floating-label item-login">
+		                <span class="input-label">Password</span>
+		                <input type="password" placeholder="Password" ng-model="registerForm.password">
+		            </label>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<label class="item item-input item-floating-label item-login">
+		                <span class="input-label">Display name</span>
+		                <input type="text" placeholder="Display name" ng-model="registerForm.displayname">
+		            </label>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10">
+			    	<button id="registerButton" class="button button-block button-light" ng-click="register(registerForm.email, registerForm.password, registerForm.displayname)">Sign up</button>
+			    </div>
+		  	</div>
+
+		  	<div class="row">
+			    <div class="col col-80 col-offset-10 text-center">
+			    	<a href="javascript:;" ng-click="changeModeToLoginEmail()"><h4 class="dark">Sign in</h4></a>
+			    </div>
+		  	</div>
+		</ion-content>
+	</div>
+</ion-modal-view>
