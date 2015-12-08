@@ -3,10 +3,17 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 		$scope.mode = 'list';
 		
 		$scope.user = $localStorage.getObject('login');
-		$scope.isPremium = $localStorage.get('isPremium', false);
+
+		//$scope.isPremium = $localStorage.get('isPremium', false);
+		if ($localStorage.get('isPremium', false) == "true") {
+		    $scope.isPremium = true;
+		}
+		else{
+			$scope.isPremium = false;
+		}
 		
 		$scope.genres = $localStorage.getObject('list-genres');
-		$scope.imageURI = null;
+		$scope.imageData = null;
 
 		$scope.regions = $localStorage.getObject('list-regions');
 		$scope.regionName = $localStorage.get('region', 'TP.HCM');
@@ -24,6 +31,10 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 			url: null,
 			notes: null
 		};
+
+		$scope.$on('$ionicView.enter', function(){
+	      	$ionicSideMenuDelegate.canDragContent(false);
+	    });
 
 		$timeout(function () {
             document.getElementById('fab-activity').classList.toggle('on');
@@ -142,6 +153,20 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 	  		if ($scope.user == null) {
 	  			$scope.loginModal.show();
 			} else {
+				//reset form
+				$scope.event = {
+					title: null,
+					location: null,
+					startDate: moment().toDate(),
+					startTime: moment().add(1, 'hours').minute(0).second(0).millisecond(0).toDate(),
+					endDate: moment().toDate(),
+					endTime: moment().add(2, 'hours').minute(0).second(0).millisecond(0).toDate(),
+					visibility: null,
+					region: null,
+					genre: null,
+					url: null,
+					notes: null
+				};
 				$scope.createEventModal.show();
 
 				if (!$scope.isPremium) {
@@ -165,6 +190,7 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 	  	});
 
 	  	$scope.openUpgradeModal = function() {
+	  		$scope.upgradeForm = {};
 			$scope.upgradeModal.show();
 		};
 
@@ -177,6 +203,7 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 				//user not logged in
 				$scope.openLoginModal();
 			} else {
+				$ionicSideMenuDelegate.canDragContent(true);
 				$ionicSideMenuDelegate.toggleRight();
 			} 
 		};
@@ -199,7 +226,7 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 						$scope.user = result.data;
 						$localStorage.setObject('login', result.data);
 
-						// Send user_id to Server to check ì user is premium account
+						// Send user_id to Server to check if user is premium account
 						$scope.setIsPremium();
 
 						$ionicLoading.hide();
@@ -297,13 +324,14 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 			$localStorage.setObject('login', null);
 			$scope.user = null;
 			$scope.mode = 'list';
+			$ionicSideMenuDelegate.canDragContent(false);
 		};
 
 		$scope.getImage = function() {
-			navigator.camera.getPicture(function(imageURI) {
-				var image = document.getElementById('photo');
-			    image.src = imageURI;
-			    $scope.imageURI = imageURI;
+			navigator.camera.getPicture(function(imageData) {
+				var image = document.getElementById('photo-image');
+			    image.src = "data:image/jpeg;base64," + imageData;
+			    $scope.imageData = image.src;
 			}, function(message) {
 				var alertPopup = $ionicPopup.alert({
 					title: 'Error',
@@ -312,12 +340,10 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 				});
 			}, { 
 				quality: 50,
-			    destinationType: Camera.DestinationType.FILE_URI 
+			    destinationType: Camera.DestinationType.DATA_URL,
+			    encodingType: Camera.EncodingType.JPEG,
+			    sourceType: Camera.PictureSourceType.PHOTOLIBRARY
 			});
-		};
-
-		$scope.clickSave = function() {
-			document.getElementById('create-event').click();
 		};
 
 		$scope.createEvent = function() {
@@ -358,7 +384,7 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 							'end_date': moment($scope.event.endDate).format('DD-MM-YYYY') + ' ' + moment($scope.event.endTime).format('HH:mm:ss'),
 							'url': $scope.event.url,
 							'notes': $scope.event.notes,
-							'image': $scope.imageURI,
+							'image': $scope.imageData,
 							'visibility': $scope.event.visibility,
 							'region_id': $scope.event.region,
 							'genre_id': $scope.event.genre
@@ -370,6 +396,9 @@ EvedaApp.controller('RootCtrl', ['$scope', '$rootScope', 'data', '$localStorage'
 									template: '<div class="row"><span class="col text-center">New event has been created and wait for the check</span></div>',
 									okType: 'button-balanced'
 								});
+
+								var image = document.getElementById('photo-image');
+			    				image.src = '';
 						      	$ionicLoading.hide();
 						      	/*alert(start);
 						      	alert(end);*/

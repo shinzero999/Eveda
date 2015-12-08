@@ -17,7 +17,7 @@
 		    <div class="col col-80 col-offset-10">
 		    	<label class="item item-input item-floating-label item-login">
 	                <span class="input-label">Phone number</span>
-	                <input type="tel" placeholder="Phone number" ng-model="phoneNumber">
+	                <input type="tel" placeholder="Phone number" ng-model="upgradeForm.phoneNumber">
 	            </label>
 		    </div>
 		</div>
@@ -25,7 +25,7 @@
 		    <div class="col col-80 col-offset-10">
 		    	<label class="item item-input item-floating-label item-login">
 	                <span class="input-label">Address</span>
-	                <input type="text" placeholder="Address" ng-model="address">
+	                <input type="text" placeholder="Address" ng-model="upgradeForm.address">
 	            </label>
 		    </div>
 	  	</div>
@@ -34,14 +34,14 @@
 		    <div class="col col-80 col-offset-10">
 		    	<label class="item item-input item-floating-label item-login">
 	                <span class="input-label">About</span>
-	                <textarea rows="4" placeholder="About" ng-model="about" style="background-color: transparent"></textarea>
+	                <textarea rows="4" placeholder="About" ng-model="upgradeForm.about" style="background-color: transparent"></textarea>
 	            </label>
 		    </div>
 	  	</div>
 
 	  	<div class="row">
 		    <div class="col col-80 col-offset-10">
-		    	<button class="button button-block button-light" ng-click="upgrade(phoneNumber, address, about)">Upgrade</button>
+		    	<button class="button button-block button-light" ng-click="upgrade(upgradeForm.phoneNumber, upgradeForm.address, upgradeForm.about)">Upgrade</button>
 		    </div>
 	  	</div>
 	</ion-content>

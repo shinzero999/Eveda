@@ -34,7 +34,7 @@ EvedaApp.controller('HomeCtrl', ['$scope', '$localStorage', '$rootScope', 'data'
 			});*/
 		};
 
-		if (!$scope.isPremium || !$scope.genres || !$scope.regions) {
+		if (!$scope.genres || !$scope.regions || !$scope.publicEvents) {
 			$scope.showLoading('Loading...');
 
 			reloadData();

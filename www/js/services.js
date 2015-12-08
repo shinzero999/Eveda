@@ -1,7 +1,7 @@
 EvedaApp.factory('data', ['$http', 
   function($http) {
-    //var serviceBase = 'http://shinzero.pe.hu/';
-    var serviceBase = 'http://localhost/eveda/eveda-web/';
+    var serviceBase = 'http://shinzero.pe.hu/';
+    //var serviceBase = 'http://localhost/eveda/eveda-web/';
 
     return {
       post: function (url, data) {

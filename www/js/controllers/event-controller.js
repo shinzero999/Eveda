@@ -15,6 +15,9 @@ EvedaApp.controller('EventCtrl', ['$scope', '$rootScope', 'data', '$localStorage
 
 	    	$scope.event.start_date = moment($scope.event.start_date);
 			$scope.event.end_date = moment($scope.event.end_date);
+			if ($scope.event.image != null && $scope.event.image != '') {
+				document.getElementsByClassName("hero")[0].style.backgroundImage = "url('" + $scope.event.image + "')";
+			}
 
           	$ionicLoading.hide();
 

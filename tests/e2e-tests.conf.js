@@ -7,7 +7,9 @@ exports.config = {
         },
         baseUrl: 'http://localhost:8100',
         specs: [
-            'e2e-tests/**/*.tests.js'
+            //'e2e-tests/**/*.tests.js'
+            'e2e-tests/create-event.tests.js',
+            'e2e-tests/upgrade.tests.js',
         ],
         jasmineNodeOpts: {
             isVerbose: true,

@@ -21,7 +21,7 @@ describe('Clicking on the signin button ', function(){
                 password = element(by.model('loginForm.password'));
 
                 //Get sign in button
-                signinButton = loginButton = element(by.id('loginButton'));
+                signinButton = element(by.id('loginButton'));
 
                 //Set text for email & password input
                 email.sendKeys('abc@mailinator');
@@ -49,7 +49,7 @@ describe('Clicking on the signin button ', function(){
                 email = element(by.model('loginForm.email'));
                 password = element(by.model('loginForm.password'));
 
-                signinButton = loginButton = element(by.id('loginButton'));
+                signinButton = element(by.id('loginButton'));
 
                 email.sendKeys('abc@mailinator.com');
                 password.sendKeys('123456');

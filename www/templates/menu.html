@@ -38,10 +38,10 @@
         <ion-item class="item item-icon-left">
           <i class="icon ion-email"></i> Email: {{user.email}}
         </ion-item>
-        <ion-item class="item item-icon-left item-divider" menu-close ng-click="openUpgradeModal()" style="height: auto" ng-show="isPremium == false">
+        <ion-item class="ng-hide item item-icon-left item-divider" menu-close ng-click="openUpgradeModal()" style="height: auto" ng-show="!isPremium">
           <i class="icon ion-arrow-graph-up-right"></i> Upgrade
         </ion-item>
-        <ion-item class="item item-icon-left item-divider" menu-close ng-click="openUpgradeModal()" style="height: auto" ng-show="isPremium == true">
+        <ion-item class="ng-hide item item-icon-left item-divider" menu-close ng-click="openUpgradeModal()" style="height: auto" ng-show="isPremium">
           <i class="icon ion-arrow-graph-down-right"></i> Downgrade
         </ion-item>
         <ion-item class="item item-icon-left item-divider" menu-close ng-click="logout()" style="height: auto">

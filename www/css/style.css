@@ -178,7 +178,15 @@ a {
 ==================================*/
 #photo {
   max-height: 200px;
+  overflow: hidden;
 }
+#photo img {
+  margin: auto;
+  width: 100%;
+  background: no-repeat center center;
+  background-size: 100%;
+}
+
 
 /* Event detail
 ==================================*/
